@@ -14,7 +14,7 @@ export default function generalFooter() {
   const handleHomeButton = () => {
     navigation.navigate("Home");
   };
-  const handleOrderButton = () => {
+  const handleMenuButton = () => {
     navigation.navigate("Order");
   };
   const handleDealsButton = () => {
@@ -81,11 +81,11 @@ export default function generalFooter() {
         <TouchableOpacity
           underlayColor={"transparent"}
           hitSlop={{ top: 40, bottom: 100, left: 40, right: 40 }}
-          onPress={handleOrderButton}
+          onPress={handleMenuButton}
         >
           <Image source={require("../../assets/purchase-order.png")} />
         </TouchableOpacity>
-        <Text>Order</Text>
+        <Text>Menu</Text>
       </View>
       <View
         style={[

@@ -34,7 +34,7 @@ export default function header() {
     >
       <View>
         <Text style={{ fontFamily: "Montserrat_700Bold", fontSize: 24 }}>
-          Order
+          Menu
         </Text>
         <SearchPopUp searchModal={searchModal} setSearchModal={setSearchModal} />
       </View>
