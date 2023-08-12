@@ -6,7 +6,7 @@ import {
   Dimensions,
   Linking,
 } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import styles from "./styles";
 import {
   useFonts,
@@ -21,7 +21,6 @@ import {
 const { width } = Dimensions.get("window");
 
 export default function OrderAhead() {
-  const [modalVisible, setModalVisible] = useState(false);
   const handleOrderNowButton = () => {
     const url = `https://www.doordash.com/store/peachy's-food-to-go-llc-stockton-24686955/?event_type=autocomplete&pickup=false`;
     Linking.openURL(url).catch((err) =>
