@@ -4,8 +4,8 @@ import {
   Image,
   TouchableHighlight,
   Dimensions,
+  Linking,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import styles from "./styles";
 import {
@@ -22,9 +22,11 @@ const { width } = Dimensions.get("window");
 
 export default function OrderAhead() {
   const [modalVisible, setModalVisible] = useState(false);
-  const navigation = useNavigation();
   const handleOrderNowButton = () => {
-    navigation.navigate("Order");
+    const url = `https://www.doordash.com/store/peachy's-food-to-go-llc-stockton-24686955/?event_type=autocomplete&pickup=false`;
+    Linking.openURL(url).catch((err) =>
+      console.error("An error occurred", err)
+    );
   };
   let [fontsLoaded] = useFonts({
     K2D_400Regular,
@@ -37,10 +39,8 @@ export default function OrderAhead() {
     return null;
   }
 
-
   return (
     <View>
-
       <View
         style={{
           display: "flex",
@@ -92,7 +92,10 @@ export default function OrderAhead() {
         </View>
         <View style={{ marginTop: 29, marginRight: 14, alignItems: "center" }}>
           <Image source={require("../../../assets/doordashTitle.png")} />
-          <Image style={{width: '100%', height: '80%'}} source={require("../../../assets/sisigFries.png")} />
+          <Image
+            style={{ width: "100%", height: "80%" }}
+            source={require("../../../assets/sisigFries.png")}
+          />
         </View>
         <View
           style={{
