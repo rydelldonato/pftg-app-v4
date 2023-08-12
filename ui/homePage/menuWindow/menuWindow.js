@@ -129,7 +129,7 @@ export default function MenuWindow() {
                   },
                 ]}
               >
-                Start an Order
+                View Our Menu
               </Text>
             </TouchableHighlight>
           </View>
