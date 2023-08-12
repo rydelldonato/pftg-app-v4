@@ -18,7 +18,6 @@ import {
   Montserrat_600SemiBold,
   Montserrat_700Bold,
 } from "@expo-google-fonts/montserrat";
-import SetUpPayment from "../setUpPayment/setUpPayment";
 const { width } = Dimensions.get("window");
 
 export default function OrderAhead() {
@@ -41,10 +40,7 @@ export default function OrderAhead() {
 
   return (
     <View>
-      <SetUpPayment
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-      />
+
       <View
         style={{
           display: "flex",
@@ -139,40 +135,6 @@ export default function OrderAhead() {
                 ]}
               >
                 Order Now
-              </Text>
-            </TouchableHighlight>
-          </View>
-          <View style={{ marginLeft: 20 }}>
-            <TouchableHighlight
-              style={{
-                width: 154,
-                height: 32,
-                borderWidth: 1,
-                borderRadius: 7,
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#FAEDCD",
-                shadowOffset: {
-                  width: 0,
-                  height: 4,
-                },
-                shadowOpacity: 0.35,
-                shadowRadius: 3.84,
-                elevation: 5,
-              }}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text
-                style={[
-                  styles.buttontext,
-                  {
-                    fontFamily: "K2D_400Regular",
-                    textAlign: "center",
-                    fontSize: 15,
-                  },
-                ]}
-              >
-                Set Up Payment
               </Text>
             </TouchableHighlight>
           </View>

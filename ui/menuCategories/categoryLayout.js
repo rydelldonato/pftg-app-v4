@@ -11,14 +11,11 @@ import { useNavigation } from "@react-navigation/native";
 import SearchPopUp from "../orderPage/searchPopUp/searchPopUp";
 import menuItems from "../../backend/menuItems/menuItems";
 import styles from "./styles";
-import CartContext from "../orderPage/cartComponent/cartContext";
 
 const { width } = Dimensions.get("window");
 const middleX = width / 2;
 
 export default function categoryLayout(props) {
-  const { cartItems, addToCart, removeFromCart, clearCart } =
-    useContext(CartContext);
   const { category } = props;
   const [searchModal, setSearchModal] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -72,17 +69,6 @@ export default function categoryLayout(props) {
           shadowOpacity: 0.35,
           shadowRadius: 3.84,
           elevation: 5,
-        }}
-        onPress={() => {
-          const newItem = {
-            id: `${item.name}_${Date.now()}`, // Create a unique id for the item
-            name: item.name,
-            image: item.image,
-            price: item.price,
-            quantity: item.quantity
-          };
-          addToCart(newItem);
-          console.log(newItem.quantity);
         }}
       >
         <Image

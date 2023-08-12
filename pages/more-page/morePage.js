@@ -14,13 +14,6 @@ export default function MorePage({ navigation }) {
       //
     },
     {
-      id: "Recents & Faves",
-      title: "Recents & Faves",
-      image: require("../../assets/recents.png"),
-      //I want a specific modal to pop up based on the category pressed
-      //
-    },
-    {
       id: "Locations",
       title: "Locations",
       image: require("../../assets/Location.png"),

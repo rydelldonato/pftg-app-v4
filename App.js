@@ -19,10 +19,6 @@ import Locations from "./pages/locations-page/locations";
 import ContactPage from "./pages/contact-page/contactPage";
 import Profile from "./pages/profile-page/profile";
 import PersonalSettings from "./pages/personal-settings-page/personalSettings";
-import CartProvider from "./ui/orderPage/cartComponent/cartProvider";
-import AppWrapper from "./pages/appWrapper";
-import CartComponent from "./ui/orderPage/cartComponent/cartComponent";
-import ReviewAndPay from "./pages/reviewAndPay/reviewAndPay";
 import DeliveryInfoPage from "./pages/delivery-info-page/deliveryInfoPage";
 // import firebase from 'firebase/app';
 // import 'firebase/auth';
@@ -51,14 +47,10 @@ export default function App() {
   const shouldShowFooter = (routeName) => {
     return !(routeName === "Welcome" || routeName === "Review and Pay");
   };
-  const shouldShowCartComponent = (routeName) => {
-    return !(routeName === "Welcome" || routeName === "Review and Pay");
-  };
+  
   return (
     <>
-      <CartProvider>
         <NavigationContainer>
-          {shouldShowCartComponent(currentPage) && <CartComponent />}
           <Stack.Navigator
             screenOptions={({ route }) => ({
               headerShown: false,
@@ -86,19 +78,11 @@ export default function App() {
               name="Personal Settings"
               component={PersonalSettings}
             />
-            <Stack.Screen
-              name="Review and Pay"
-              options={{ title: "Review and Pay", headerShown: false }}
-            >
-              {/* Pass the setCurrentPage prop to the ReviewAndPay component */}
-              {() => <ReviewAndPay setCurrentPage={setCurrentPage} />}
-            </Stack.Screen>
           </Stack.Navigator>
 
           {shouldShowFooter(currentPage) && <GeneralFooter />}
           <StatusBar style="auto" />
         </NavigationContainer>
-      </CartProvider>
     </>
   );
 }

@@ -20,13 +20,6 @@ export default function profileFlatList() {
       //I want a specific modal to pop up based on the category pressed
       //
     },
-    {
-      id: "Payment Methods",
-      title: "Payment Methods",
-      image: require("../../assets/paymentMethod.png"),
-      //I want a specific modal to pop up based on the category pressed
-      //
-    },
   ];
   const Item = ({ title, image, onPress }) => (
     <TouchableOpacity onPress={onPress}>
