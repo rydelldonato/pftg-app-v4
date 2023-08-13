@@ -19,7 +19,6 @@ import Locations from "./pages/locations-page/locations";
 import ContactPage from "./pages/contact-page/contactPage";
 import Profile from "./pages/profile-page/profile";
 import PersonalSettings from "./pages/personal-settings-page/personalSettings";
-import DeliveryInfoPage from "./pages/delivery-info-page/deliveryInfoPage";
 // import firebase from 'firebase/app';
 // import 'firebase/auth';
 // import 'firebase/firestore';
@@ -73,7 +72,6 @@ export default function App() {
             <Stack.Screen name="Locations" component={Locations} />
             <Stack.Screen name="Contact" component={ContactPage} />
             <Stack.Screen name="Profile" component={Profile} />
-            <Stack.Screen name="DeliveryInfoPage" component={DeliveryInfoPage} />
             <Stack.Screen
               name="Personal Settings"
               component={PersonalSettings}

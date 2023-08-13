@@ -11,6 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import SearchPopUp from "../orderPage/searchPopUp/searchPopUp";
 import menuItems from "../../backend/menuItems/menuItems";
 import styles from "./styles";
+import MenuItemModal from "../orderPage/menuItemModal/menuItemModal";
 
 const { width } = Dimensions.get("window");
 const middleX = width / 2;
@@ -20,6 +21,7 @@ export default function categoryLayout(props) {
   const [searchModal, setSearchModal] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false)
   const navigation = useNavigation();
 
   const handleSearch = (category) => {
@@ -70,6 +72,7 @@ export default function categoryLayout(props) {
           shadowRadius: 3.84,
           elevation: 5,
         }}
+        onPress={()=>setModalVisible(!modalVisible)}
       >
         <Image
           style={{
@@ -102,6 +105,7 @@ export default function categoryLayout(props) {
 
   return (
     <View>
+      <MenuItemModal modalVisible={modalVisible} />
       <View style={{ position: "absolute", top: 50, left: 24, zIndex: 1 }}>
         <TouchableOpacity onPress={goBack}>
           <Image source={require("../../assets/back.png")} />
