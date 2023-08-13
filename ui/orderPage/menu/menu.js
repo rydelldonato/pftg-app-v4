@@ -143,7 +143,7 @@ export default function menu() {
         Explore our menu
       </Text>
       <FlatList
-        style={{ height: 700 }}
+        style={{ height: 600 }}
         data={DATA}
         renderItem={({ item }) => (
           <Item
