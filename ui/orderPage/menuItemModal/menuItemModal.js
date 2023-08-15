@@ -1,25 +1,46 @@
-import { View, Text, StyleSheet } from "react-native";
 import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 import Modal from "react-native-modal";
+import * as Animatable from "react-native-animatable"; // Import Animatable
+import CloseButton from "../../closeButton";
 
-export default function menuItemModal(props) {
-  const { modalVisible } = props;
+export default function MenuItemModal(props) {
+  const { modalVisible, setModalVisible } = props;
 
   return (
     <View>
       <Modal
         backdropOpacity={0.7}
-        backdropTransitionInTiming={1000}
-        backdropTransitionOutTiming={1000}
-        animationIn="zoomIn"
-        animationOut="zoomOut"
-        visible={modalVisible}
+        backdropTransitionInTiming={400}
+        backdropTransitionOutTiming={400}
+        isVisible={modalVisible} // "visible" prop is changed to "isVisible"
+        animationIn="bounceIn" // Change the animation names
+        animationOut="bounceOut"
+        animationInTiming={400} // Adjust the timing as per your preference
+        animationOutTiming={400}
       >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
+        <Animatable.View // Use Animatable.View
+          style={styles.modalContainer}
+          animation="bounceIn" // Animation for the modal content
+        >
+          <Animatable.View
+            style={styles.closeButton}
+            animation="fadeIn"
+            delay={500}
+          >
+            <CloseButton
+              modalVisible={modalVisible}
+              setModalVisible={setModalVisible}
+            />
+          </Animatable.View>
+          <Animatable.View
+            style={styles.modalContent}
+            animation="fadeIn"
+            delay={300}
+          >
             <Text>menuItemModal</Text>
-          </View>
-        </View>
+          </Animatable.View>
+        </Animatable.View>
       </Modal>
     </View>
   );
@@ -40,5 +61,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
     borderRadius: 10,
+  },
+  closeButton: {
+    position: "absolute",
+    zIndex: 1,
+    top: 310,
+    right: 244,
   },
 });
