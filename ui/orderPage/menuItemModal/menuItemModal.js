@@ -80,8 +80,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0)", // Semi-transparent background
   },
   modalContent: {
-    width: 200,
-    height: 200,
+    width:247,
+    height: 300,
     backgroundColor: "white",
     justifyContent: "center",
     alignItems: "center",
