@@ -23,6 +23,8 @@ export default function categoryLayout(props) {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [modalVisible, setModalVisible] = useState(false)
+  const [selectedItem, setSelectedItem] = useState(null);
+
   const navigation = useNavigation();
 
   const handleSearch = (category) => {
@@ -73,7 +75,10 @@ export default function categoryLayout(props) {
           shadowRadius: 3.84,
           elevation: 5,
         }}
-        onPress={()=>setModalVisible(!modalVisible)}
+        onPress={()=>{
+          setSelectedItem(item);
+          setModalVisible(true);
+        }}
       >
         <Image
           style={{
@@ -106,7 +111,7 @@ export default function categoryLayout(props) {
 
   return (
     <View>
-      <MenuItemModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+      <MenuItemModal selectedItem={selectedItem} modalVisible={modalVisible} setModalVisible={setModalVisible} />
       <View style={{ position: "absolute", top: 50, left: 24, zIndex: 1 }}>
         <TouchableOpacity onPress={goBack}>
           <Image source={require("../../assets/back.png")} />

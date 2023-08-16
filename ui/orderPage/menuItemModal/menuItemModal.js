@@ -6,23 +6,22 @@ import CloseButton from "../../closeButton";
 import { Button } from "react-native";
 
 export default function MenuItemModal(props) {
-  const { modalVisible, setModalVisible } = props;
-
+  const { modalVisible, setModalVisible, selectedItem } = props;
   return (
     <View>
       <Modal
         backdropOpacity={0.7}
         backdropTransitionInTiming={400}
         backdropTransitionOutTiming={400}
-        isVisible={modalVisible} // "visible" prop is changed to "isVisible"
-        animationIn="bounceIn" // Change the animation names
+        isVisible={modalVisible}
+        animationIn="bounceIn"
         animationOut="bounceOut"
-        animationInTiming={400} // Adjust the timing as per your preference
+        animationInTiming={400}
         animationOutTiming={400}
       >
-        <Animatable.View // Use Animatable.View
+        <Animatable.View
           style={styles.modalContainer}
-          animation="bounceIn" // Animation for the modal content
+          animation="bounceIn"
         >
           <Animatable.View
             style={styles.closeButton}
@@ -34,21 +33,22 @@ export default function MenuItemModal(props) {
               setModalVisible={setModalVisible}
             />
           </Animatable.View>
-          <Animatable.View
-            style={styles.modalContent}
-            animation="fadeIn"
-            delay={300}
-          >
-            <Text>FoodItem</Text>
-            <Text>price</Text>
-            <View style={{ width: "100%", height: "100%" }}>
-              <Image
-                style={{ width: "100%", height: "100%" }}
-                source={require("../../../assets/lumpia.png")}
-              />
-            </View>
-            <Text>Ingredients</Text>
+          {selectedItem && (
             <Animatable.View
+              style={styles.modalContent}
+              animation="fadeIn"
+              delay={300}
+            >
+              <Text>{selectedItem.name}</Text>
+              <Text>{selectedItem.price}</Text>
+              <Image
+                style={{ width: "50%", height: "50%" }}
+                source={selectedItem.image} // Assuming you have the image source in the item object
+              />
+              {/* ... (other item details) */}
+            </Animatable.View>
+          )}
+          <Animatable.View
               style={{width: 247 }}
               animation="rubberBand"
               iterationCount="infinite" // Make the animation infinite
@@ -65,7 +65,6 @@ export default function MenuItemModal(props) {
                 </Text>
               </TouchableOpacity>
             </Animatable.View>
-          </Animatable.View>
         </Animatable.View>
       </Modal>
     </View>
@@ -91,8 +90,8 @@ const styles = StyleSheet.create({
   closeButton: {
     position: "absolute",
     zIndex: 1,
-    top: 310,
-    right: 244,
+    top: 260,
+    right: 265,
   },
   customButton: {
     backgroundColor: "#007BFF", // Customize button background color
