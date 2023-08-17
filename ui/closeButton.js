@@ -1,4 +1,4 @@
-import { View, Text, TouchableHighlight, Image } from "react-native";
+import { View, Text, TouchableHighlight, Image,TouchableOpacity } from "react-native";
 import React from "react";
 
 
@@ -9,11 +9,12 @@ export default function closeButton(props) {
 
   return (
     <View>
-      <TouchableHighlight underlayColor="transparent" onPress={() => setModalVisible(!modalVisible)}>
+      <TouchableOpacity underlayColor="transparent" onPress={() => setModalVisible(!modalVisible)}>
         <Image
+        style={{ width: 20, height: 20 }}
           source={require("../assets/close.png")}
         />
-      </TouchableHighlight>
+      </TouchableOpacity>
     </View>
   );
 }
